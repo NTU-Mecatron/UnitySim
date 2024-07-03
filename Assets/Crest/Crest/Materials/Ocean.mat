@@ -14,6 +14,7 @@ Material:
   m_ValidKeywords:
   - CREST_CAUSTICS_ON
   - CREST_FOAM_ON
+  - CREST_WATER_VOLUME_NONE
   - _ALPHATEST_ON
   - _DOUBLESIDED_ON
   - _ENABLE_FOG_ON_TRANSPARENT
@@ -122,8 +123,8 @@ Material:
     - _SSSIntensityBase: 0
     - _SSSIntensitySun: 0
     - _SSSSunFalloff: 10.24
-    - _ScatterColourShallowDepthFalloff: 2.57
-    - _ScatterColourShallowDepthMax: 7
+    - _ScatterColourShallowDepthFalloff: 3.2
+    - _ScatterColourShallowDepthMax: 6
     - _Smoothness: 0.95
     - _SmoothnessFalloff: 0.5
     - _SmoothnessFar: 0.298
@@ -136,10 +137,10 @@ Material:
     - _StencilRefGBuffer: 10
     - _StencilRefMV: 40
     - _StencilWriteMask: 6
-    - _StencilWriteMaskDepth: 8
+    - _StencilWriteMaskDepth: 9
     - _StencilWriteMaskDistortionVec: 4
-    - _StencilWriteMaskGBuffer: 14
-    - _StencilWriteMaskMV: 40
+    - _StencilWriteMaskGBuffer: 15
+    - _StencilWriteMaskMV: 41
     - _SupportDecals: 1
     - _SurfaceType: 1
     - _TransparentBackfaceEnable: 0
@@ -159,10 +160,10 @@ Material:
     - _DoubleSidedConstants: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _FoamBubbleColor: {r: 0.6392157, g: 0.8313726, b: 0.8196079, a: 0}
-    - _SSSTint: {r: 0.0763862, g: 0.426, b: 0.39074484, a: 0}
-    - _ScatterColourBase: {r: 0.003921569, g: 0, b: 0.12156863, a: 0}
-    - _ScatterColourShadow: {r: 0.0013548374, g: 0, b: 0.042, a: 0}
-    - _ScatterColourShallow: {r: 0.003921569, g: 0, b: 0.12156863, a: 0}
+    - _SSSTint: {r: 0.14875397, g: 0.5754717, b: 0.53279996, a: 0}
+    - _ScatterColourBase: {r: 0.066666685, g: 0.60949075, b: 0.7529412, a: 0}
+    - _ScatterColourShadow: {r: 0.19045922, g: 0.19045922, b: 0.9433962, a: 0}
+    - _ScatterColourShallow: {r: 0.193681, g: 0.6403435, b: 0.8773585, a: 0}
     - _Specular: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7496147769315826939
