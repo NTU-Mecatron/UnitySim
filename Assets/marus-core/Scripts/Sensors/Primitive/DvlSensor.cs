@@ -16,6 +16,7 @@ using System;
 using Std;
 using UnityEngine;
 using Marus.Utils;
+using Marus.NoiseDistributions;
 
 namespace Marus.Sensors.Primitive
 {
@@ -26,6 +27,9 @@ namespace Marus.Sensors.Primitive
         [NonSerialized] public double[] velocityCovariance = new double[9];
         [NonSerialized] public float altitude;
         [NonSerialized] public double altitudeCovariance;
+
+        [Header("Sensor noise")]
+        [SerializeField] NoiseParameters noiseParameters;
 
         [Header("Sensor parameters measurements")]
         [Header("Core measurements")]
@@ -49,6 +53,9 @@ namespace Marus.Sensors.Primitive
         {
             var position = transform.position;
             groundVelocity = transform.worldToLocalMatrix * ((position - lastPosition) / Time.fixedDeltaTime);
+            groundVelocity[0] += Noise.Sample(noiseParameters);
+            groundVelocity[1] += Noise.Sample(noiseParameters);
+            groundVelocity[2] += Noise.Sample(noiseParameters);
 
             lastPosition = position;
 

@@ -35,8 +35,8 @@ namespace Marus.Sensors.Primitive
         [NonSerialized] public Vector3 angularVelocity;
         [NonSerialized] public double[] angularVelocityCovariance = new double[9];
 
-        [NonSerialized]public Vector3 eulerAngles;
-        [NonSerialized]public Quaternion orientation;
+        [NonSerialized] public Vector3 eulerAngles;
+        [NonSerialized] public Quaternion orientation;
         [NonSerialized] public double[] orientationCovariance = new double[9];
 
 

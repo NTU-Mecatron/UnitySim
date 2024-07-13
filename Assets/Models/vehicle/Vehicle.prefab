@@ -337,6 +337,142 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3833273137488751005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7659003941925177027}
+  - component: {fileID: 3257732538655494590}
+  - component: {fileID: 4870390962867878530}
+  - component: {fileID: 4064034168317945880}
+  - component: {fileID: 5052550875309646123}
+  m_Layer: 0
+  m_Name: Imu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7659003941925177027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833273137488751005}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 734451990824208521}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &3257732538655494590
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833273137488751005}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &4870390962867878530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833273137488751005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8384ff7084c85cb5bbcba39c46326db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frameId: Vehicle/Imu_frame
+  SampleFrequency: 20
+  withGravity: 1
+  debug: 1
+  AccelerometerNoise:
+    ParameterKeys:
+    - Bias
+    - Std
+    ParameterValues:
+    - 0
+    - 0
+    NoiseTypeFullName: Marus.NoiseDistributions.Gaussian
+  LinearAcceleration: {x: 0, y: 0, z: 0}
+  LocalVelocity: {x: 0, y: 0, z: 0}
+  GyroNoise:
+    ParameterKeys:
+    - Bias
+    - Std
+    ParameterValues:
+    - 0
+    - 0
+    NoiseTypeFullName: Marus.NoiseDistributions.Gaussian
+  AngularVelocity: {x: 0, y: 0, z: 0}
+  OrientationNoise:
+    ParameterKeys:
+    - Bias
+    - Std
+    ParameterValues:
+    - 0
+    - 0
+    NoiseTypeFullName: Marus.NoiseDistributions.Gaussian
+  EulerAngles: {x: 0, y: 0, z: 0}
+  Orientation: {x: 0, y: 0, z: 0, w: 0}
+--- !u!138 &4064034168317945880
+FixedJoint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833273137488751005}
+  m_ConnectedBody: {fileID: 8378605381785581290}
+  m_ConnectedArticulationBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_EnableCollision: 0
+  m_EnablePreprocessing: 1
+  m_MassScale: 1
+  m_ConnectedMassScale: 1
+--- !u!114 &5052550875309646123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833273137488751005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9db443e7b248794d9e3e100c85e5667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imuTopic: /sensor/imu
+  publishFrequency: 20
 --- !u!1 &8850916002750018804
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +509,7 @@ Transform:
   m_Children:
   - {fileID: 89787908561755639}
   - {fileID: 6432763708384935258}
+  - {fileID: 7659003941925177027}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2127459226885606453
@@ -480,7 +617,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8850916002750018804}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9118365f988afd4419c64e108a8bbc64, type: 3}
   m_Name: 

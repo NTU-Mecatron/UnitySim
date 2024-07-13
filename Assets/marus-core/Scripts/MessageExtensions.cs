@@ -18,7 +18,8 @@ using mQuaternion = Geometry.Quaternion;
 using uQuaternion = UnityEngine.Quaternion;
 using mPoint = Geometry.Point;
 using mColor = Std.ColorRGBA;
-using UnityEngine;
+using UnityEngine;  
+using RosMessageTypes.Geometry;
 
 namespace Marus.Networking
 {
@@ -27,11 +28,20 @@ namespace Marus.Networking
         public static mVector3 AsMsg(this uVector3 vec) =>
             new mVector3() { X = vec.x, Y = vec.y, Z = vec.z };
 
+        public static Vector3Msg AsMsgRos(this uVector3 vec) =>
+            new Vector3Msg() { x = vec.x, y = vec.y, z = vec.z };   // Added
+
+        public static PointMsg AsPointMsgRos(this uVector3 vec) =>
+            new PointMsg() { x = vec.x, y = vec.y, z = vec.z };   // Added
+
         public static uVector3 AsUnity(this mVector3 vec) =>
             new uVector3((float)vec.X, (float)vec.Y, (float)vec.Z);
 
         public static mQuaternion AsMsg(this uQuaternion vec) =>
             new mQuaternion { X = vec.x, Y = vec.y, Z = vec.z, W = vec.w };
+
+        public static QuaternionMsg AsMsgRos(this uQuaternion vec) =>
+            new QuaternionMsg { x = vec.x, y = vec.y, z = vec.z, w = vec.w };   // Added
 
         public static uQuaternion AsUnity(this mQuaternion vec) =>
             new uQuaternion((float)vec.X, (float)vec.Y, (float)vec.Z, (float)vec.W);

@@ -14,6 +14,7 @@
 
 using System;
 using Marus.NoiseDistributions;
+using UnityEngine;
 
 namespace Marus.Sensors.Primitive
 {
@@ -22,8 +23,9 @@ namespace Marus.Sensors.Primitive
     /// </summary>
     public class DepthSensor : SensorBase
     {
+        [Header("Sensor noise")]
+        [SerializeField] NoiseParameters noiseParameters;
         public bool debug = true;
-        public NoiseParameters NoiseParameters;
         [NonSerialized] public double depth;
         [NonSerialized] public double covariance;
 
@@ -32,6 +34,7 @@ namespace Marus.Sensors.Primitive
         protected override void SampleSensor()
         {
             depth = -transform.position.y;
+            depth += Noise.Sample(noiseParameters);
             if (debug)
             {
                 Depth = depth;

@@ -47,7 +47,13 @@ namespace Marus.Core
         {
             return new Vector3(vector3.z, -vector3.x, vector3.y);
         }
-        
+
+        /// Use this conversion when translating local coordinates from Unity to ROS North-East-Down body frames.
+        public static Vector3 Unity2BodyNED(this Vector3 vector3)   
+        {
+            return new Vector3(vector3.z, vector3.x, -vector3.y);   // Added
+        }
+
         /// Use this conversion when translating local rotations from Unity to ROS Forward-Left-Up body frames.
         public static Quaternion Unity2Body(this Quaternion quaternion)
         {

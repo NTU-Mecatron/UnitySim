@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using Marus.NoiseDistributions;
 using Marus.Visualization;
 using Unity.Collections;
 using UnityEngine;
@@ -39,11 +40,14 @@ namespace Marus.Sensors
         /// </summary>
         public Material ParticleMaterial;
 
+        [Tooltip("Number of rays generated, corresponding to the output number of points")]
         public int Resolution = 31;
 
-        public float MaxDistance = float.MaxValue;
-        public float MinDistance = 0;
-        public float FieldOfView = 30;
+        public float MaxDistance = 100;
+        public float MinDistance = 0.5f;
+
+        [Tooltip("Field of view in degrees")]
+        public float FieldOfView = 60;
         public float RayIntensity = 30;
 
         public ComputeShader pointCloudShader;
@@ -68,7 +72,7 @@ namespace Marus.Sensors
             var directionsLocal = RaycastJobHelper.EvenlyDistributeRays(Resolution, 1, FieldOfView, 0);
             _raycastHelper = new RaycastJobHelper<SonarReading>(gameObject, directionsLocal, OnSonarHit, OnFinish);
 
-            _pointCloudManager = PointCloudManager.CreatePointCloud(name + "_PointClout", totalRays, ParticleMaterial, pointCloudShader);
+            _pointCloudManager = PointCloudManager.CreatePointCloud(name + "_PointCloud", totalRays, ParticleMaterial, pointCloudShader);
             _coroutine = StartCoroutine(_raycastHelper.RaycastInLoop());
 
         }
