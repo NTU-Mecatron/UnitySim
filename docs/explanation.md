@@ -20,9 +20,6 @@ This page contains brief explanations and justifications for the various compone
     - [PoseROS_modified](#poseros_modified)
 - [Prefabs](#prefabs)   
 - [The ROS Workspace](#the-ros-workspace)
-    - [Launch file (unity_slam_example.py)](#launch-file-unity_slam_examplepy)
-    - [RViz config (nav2_unity.rviz)](#rviz-config-nav2_unityrviz)
-    - [Other project files](#other-project-files)
 
 ---
 
@@ -43,6 +40,9 @@ The vehicle requires a few components:
 - `RigidBody`. You can change the mass and drag values according to your needs. Modifying the mass will affect buoyancy of the vehicle. The preset will make the vehicle almost neutrally buoyant. In the future, this will be replaced by Articulation Body.
 - `Box Collider`. This is used for collision detection. 
 - `Water Object`. This is used to simulate the effect of water physics on the vehicle. You can experiment with the parameters to achieve your desired motion.
+- `TfStreamer_modified` script to publish the transform data to ROS `/tf` topic. 
+
+> Note: You must have the `TfStreamer_modified` script attached to the vehicle in order to visualize the vehicle and all the sensors in Rviz. It is responsible for setting up the transform tree from `map` to `vehicle/base_link`, which will then be used to connect to the other sensors.
 
 Under the vehicle are child objects which contain scripts for sensors. These sensors are responsible for sampling the data and publishing the data to ROS. The sensors are:
 - [CameraROS_modified](#cameraros_modified)
